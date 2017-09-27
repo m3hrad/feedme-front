@@ -14,7 +14,6 @@ class App extends Component {
           <div className="container content">
             <CountryDropdown />
             <SearchBar />
-            <p className="has-text-centered">Skeleton template for a basic layout.</p>
           </div>
         </section>
         <Footer />
