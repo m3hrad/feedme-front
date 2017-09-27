@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import CountryDropdown from './components/CountryDropdown';
-import SearchBar from './components/SearchBar.js';
+import SearchBar from './components/SearchBar';
+import Footer from './components/Footer';
 import 'bulma/css/bulma.css'
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
             <p className="has-text-centered">Skeleton template for a basic layout.</p>
           </div>
         </section>
+        <Footer />
       </div>
     );
   }
