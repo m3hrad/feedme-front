@@ -33,7 +33,7 @@ class NavBar extends Component {
               <a className="button">
                 Log in
               </a>
-              <a className="button is-info">
+              <a className="button is-info" href="/register">
                 Sign up
               </a>
             </span>
