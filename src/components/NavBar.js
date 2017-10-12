@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import logo from '../images/logo.png'
+import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
   render() {
@@ -7,9 +8,9 @@ class NavBar extends Component {
       <nav className="nav has-shadow" id="top">
         <div className="container">
           <div className="nav-left">
-            <a className="nav-item" href="/">
+            <Link className="nav-item" to='/'>
               <img src={logo} alt="Description"/>
-            </a>
+            </Link>
           </div>
           <span className="nav-toggle">
             <span></span>
@@ -20,9 +21,9 @@ class NavBar extends Component {
             <a className="nav-item is-tab is-active">
               Home
             </a>
-            <a className="nav-item is-tab" href="/addIngredient">
+            <Link className="nav-item is-tab" to="/addIngredient">
               Ingredients
-            </a>
+            </Link>
             <a className="nav-item is-tab">
               Team
             </a>
@@ -33,9 +34,9 @@ class NavBar extends Component {
               <a className="button">
                 Log in
               </a>
-              <a className="button is-info" href="/register">
+              <Link className="button is-info" to="/register">
                 Sign up
-              </a>
+              </Link>
             </span>
           </div>
         </div>
