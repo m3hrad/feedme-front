@@ -15,8 +15,8 @@ class AddIngredient extends Component {
           <div className="field">
             <div className="control">
               <label className="checkbox">
-                <input type="checkbox" name=""/>
-                I agree to the <a href="#">terms and conditions</a>
+                <input type="checkbox" name="" />
+                  {" Vegan"}
               </label>
             </div>
           </div>
