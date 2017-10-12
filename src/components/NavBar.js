@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import logo from '../images/logo.png'
 
 class NavBar extends Component {
   render() {
@@ -6,8 +7,8 @@ class NavBar extends Component {
       <nav className="nav has-shadow" id="top">
         <div className="container">
           <div className="nav-left">
-            <a className="nav-item" href="../index.html">
-              <img src="../images/bulma.png" alt="Description"/>
+            <a className="nav-item" href="/">
+              <img src={logo} alt="Description"/>
             </a>
           </div>
           <span className="nav-toggle">
@@ -19,8 +20,8 @@ class NavBar extends Component {
             <a className="nav-item is-tab is-active">
               Home
             </a>
-            <a className="nav-item is-tab">
-              Features
+            <a className="nav-item is-tab" href="/addIngredient">
+              Ingredients
             </a>
             <a className="nav-item is-tab">
               Team
