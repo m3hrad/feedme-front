@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import CountryDropdown from '../components/CountryDropdown';
 import SearchBar from '../components/SearchBar';
+import landing from '../images/landing.png';
 
 class Home extends Component {
   render() {
     return (
       <section className="section">
-        <div className="container content">
+        <div className="container">
           <CountryDropdown />
           <SearchBar />
-        </div>
+          <figure className="image">
+            <img src={landing} />
+          </figure>
+          </div>
       </section>
     );
   }
