@@ -31,10 +31,10 @@ class NavBar extends Component {
               Help
             </a>
             <span className="nav-item">
-              <a className="button">
+              <Link className="button" to="/login">
                 Log in
-              </a>
-              <Link className="button is-info" to="/register">
+              </Link>
+              <Link className="button" to="/register">
                 Sign up
               </Link>
             </span>
