@@ -4,3 +4,7 @@ $primary: #97ca73;
 $info: #71a7bb;
 
 @import "bulma/bulma";
+
+.checkbox + .checkbox {
+    margin-left: .5em;
+}

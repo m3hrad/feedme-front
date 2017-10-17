@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import CountryDropdown from '../components/CountryDropdown';
 
 class AddIngredient extends Component {
   render() {
+    const attributes = ['vegan', 'vegetarian', 'lactose-free',
+  'gluten-free', 'low-carb', 'low-fat', 'protein-rich', 'dairy-free'].sort();
+    const checkboxes = attributes.map((a) => {
+      return (
+        <label className="checkbox has-margin-right" key={a}>
+          <input type="checkbox" name="attribute" />
+            {' ' + a}
+        </label>
+      );
+    });
     return (
       <section className="section">
         <div className="container">
@@ -12,13 +23,19 @@ class AddIngredient extends Component {
               <input className="input" type="text" placeholder="" />
             </div>
           </div>
+          <label className="label">Location</label>
+          <CountryDropdown />
           <div className="field">
-            <div className="control">
-              <label className="checkbox">
-                <input type="checkbox" name="" />
-                  {" Vegan"}
-              </label>
-            </div>
+            <p className="control">
+              {checkboxes}
+            </p>
+          </div>
+          <div className="field">
+            <p className="control">
+              <button className="button is-info">
+                Submit
+              </button>
+            </p>
           </div>
         </div>
       </section>
