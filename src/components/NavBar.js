@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import logo from '../images/logo.png'
-import { Link } from 'react-router-dom'
+import logo from '../images/logo.png';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
   render() {
