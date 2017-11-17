@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CountryDropdown from '../components/CountryDropdown';
+import Ingredients from './Ingredients';
 
 class AddIngredient extends Component {
   render() {
@@ -14,6 +15,8 @@ class AddIngredient extends Component {
       );
     });
     return (
+      <div>
+      <Ingredients />
       <section className="section">
         <div className="container">
           <p className="subtitle">Add ingredient</p>
@@ -39,6 +42,7 @@ class AddIngredient extends Component {
           </div>
         </div>
       </section>
+    </div>
     );
   }
 }
