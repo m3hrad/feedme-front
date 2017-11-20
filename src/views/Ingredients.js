@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Ingredient from '../components/Ingredient';
+import AddIngredient from '../components/AddIngredient';
 
 class Ingredients extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class Ingredients extends Component {
   }
 
   componentDidMount() {
-    this.fetchIngredients(this.props.url);
+    this.fetchIngredients('https://feedme-backend.herokuapp.com/api/ingredients');
   }
 
   render() {
@@ -38,11 +39,14 @@ class Ingredients extends Component {
         <Ingredient data={d} key={d.name}/>
     );
     return(
-      <section className="section">
-        <div className="container">
-          {ingredients}
-        </div>
-      </section>
+      <div>
+        <section className="section">
+          <div className="container">
+            {ingredients}
+          </div>
+        </section>
+        <AddIngredient />
+      </div>
     );
   }
 }

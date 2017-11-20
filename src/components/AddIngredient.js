@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import CountryDropdown from '../components/CountryDropdown';
-import Ingredients from './Ingredients';
+import CountryDropdown from './CountryDropdown';
 
 class AddIngredient extends Component {
   render() {
@@ -15,8 +14,6 @@ class AddIngredient extends Component {
       );
     });
     return (
-      <div>
-      <Ingredients url='http://localhost:8080/api/ingredients'/>
       <section className="section">
         <div className="container">
           <p className="subtitle">Add ingredient</p>
@@ -42,7 +39,6 @@ class AddIngredient extends Component {
           </div>
         </div>
       </section>
-    </div>
     );
   }
 }

@@ -10,7 +10,7 @@ class Ingredient extends Component {
     const attributes = keys.map((a) => {
       if (data[a] === true) {
         return(
-          <p>&#10004; {a}</p>
+          <p key={a}>&#10004; {a}</p>
         );
       }
     });
