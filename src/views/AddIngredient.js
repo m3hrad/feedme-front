@@ -16,7 +16,7 @@ class AddIngredient extends Component {
     });
     return (
       <div>
-      <Ingredients />
+      <Ingredients url='http://localhost:8080/api/ingredients'/>
       <section className="section">
         <div className="container">
           <p className="subtitle">Add ingredient</p>

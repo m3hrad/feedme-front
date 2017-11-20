@@ -5,12 +5,12 @@ class Ingredients extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ingredients: []
+      dataIngredients: []
     };
   }
 
-  fetchIngredients() {
-    fetch('https://feedme-backend.herokuapp.com/api/ingredients').then(
+  fetchIngredients(url) {
+    fetch(url).then(
       (response) => {
         if (response.status !== 200) {
           console.log('Error when retrieving ingredients. Status Code: ' +
@@ -18,24 +18,29 @@ class Ingredients extends Component {
           return;
         }
         let ingredients = []
-        response.json().then(function(data) {
-          console.log(data);
-          ingredients.push(Ingredient(data));
+        response.json().then((data) => {
+          let ingredients = [];
+          for (const i in data.data) {
+            ingredients.push(data.data[i]);
+          }
+          this.setState({dataIngredients: ingredients});
         });
-        this.setState({ingredients: ingredients});
       }
     )
   }
 
   componentDidMount() {
-    this.fetchIngredients();
+    this.fetchIngredients(this.props.url);
   }
 
   render() {
+    const ingredients = this.state.dataIngredients.map((d) =>
+        <Ingredient data={d} key={d.name}/>
+    );
     return(
       <section className="section">
         <div className="container">
-          {this.state.ingredients}
+          {ingredients}
         </div>
       </section>
     );
