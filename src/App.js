@@ -6,7 +6,10 @@ import AddIngredient from './views/AddIngredient';
 import Footer from './components/Footer';
 import Login from './views/Login';
 import RecipeSearch from './views/RecipeSearch.js';
+import Recipe from './views/Recipe';
+import Ingredient from './views/Ingredient';
 import { Switch, Route } from 'react-router-dom';
+import AddRecipe from "./views/AddRecipe.js";
 
 class App extends Component {
   render() {
@@ -17,8 +20,11 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route path='/register' component={Registration} />
           <Route path='/addIngredient' component={AddIngredient} />
+          <Route path='/addRecipe' component={AddRecipe} />
           <Route path='/login' component={Login} />
           <Route path='/recipe' component={RecipeSearch} />
+          <Route path='/recipes/:id?' component={Recipe} />
+          <Route path='/ingredients/:id?' component={Ingredient} />
         </Switch>
         <Footer />
       </div>
