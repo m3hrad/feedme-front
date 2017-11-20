@@ -1,30 +1,25 @@
 import React, { Component } from 'react';
-import { parse } from 'qs';
 import Recipes from '../components/Recipes';
 
 
-class RecipeSearch extends Component {
-    constructor(props) {
+class Recipe extends Component {
 
+    constructor(props) {
         super(props);
         this.state = {
             recipes: []
         };
     };
-    _getRecipeInfo = () => {
 
+    _getRecipeInfo = () => {
 
         const main = this;
         main.setState({
             infoStatus: 'loading'
         });
 
-        const searchQuery = parse(this.props.location.search.substr(1));
-        let nameQuery = '';
-        if (typeof searchQuery.name !== 'undefined') {
-            nameQuery = 'name='+searchQuery.name;
-        }
-        fetch(`https://feedme-backend.herokuapp.com/api/recipes?${nameQuery}`)
+        let queryId = this.props.match.params.id;
+        fetch(`https://feedme-backend.herokuapp.com/api/recipes/${queryId}`)
             .then( function(response) {
                 return response;
             })
@@ -47,6 +42,7 @@ class RecipeSearch extends Component {
                 });
             })
     };
+
     componentWillMount() {
         this._getRecipeInfo();
     };
@@ -73,4 +69,4 @@ class RecipeSearch extends Component {
     };
 }
 
-export default RecipeSearch;
+export default Recipe;
