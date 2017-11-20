@@ -11,8 +11,8 @@ class RecipeSearch extends Component {
             recipes: []
         };
     };
-    _getRecipeInfo = () => {
 
+    _getRecipeInfo = () => {
 
         const main = this;
         main.setState({

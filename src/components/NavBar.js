@@ -25,6 +25,9 @@ class NavBar extends Component {
             <Link className="nav-item is-tab" to="/addIngredient">
               Ingredients
             </Link>
+            <Link className="nav-item is-tab" to="/addRecipe">
+              Recipes
+            </Link>
             <a className="nav-item is-tab">
               Team
             </a>
