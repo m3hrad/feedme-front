@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 
 class Ingredient extends Component {
-  constructor(props) {
-    super(props);
+
+  renderAttributes(data) {
+    let keys = [];
+    for (const key in data) {
+      keys.push(key);
+    }
+    const attributes = keys.map((a) => {
+      if (data[a] === true) {
+        return(
+          <p>&#10004; {a}</p>
+        );
+      }
+    });
+    return attributes;
   }
 
   render() {
-    console.log(this.props.data);
-    let attributeElements = [];
-    for (const d in this.props.data) {
-      console.log(d);
-      if (d === 'vegan') {
-        attributeElements.push(() => <p>Vegan</p>);
-      }
-    }
-    console.log(attributeElements);
     return(
       <div className="box">
         <nav className="level">
@@ -35,7 +38,9 @@ class Ingredient extends Component {
 
           <div className="level-right">
             <div className="level-item has-text-centered">
-              {attributeElements[0]()}
+              <div>
+                {this.renderAttributes(this.props.data)}
+              </div>
             </div>
           </div>
         </nav>
