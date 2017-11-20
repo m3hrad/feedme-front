@@ -7,10 +7,12 @@ class Ingredient extends Component {
     for (const key in data) {
       keys.push(key);
     }
+    keys.sort();
     const attributes = keys.map((a) => {
       if (data[a] === true) {
+        const a_modified = a.replace(/_/g, '-');
         return(
-          <p key={a}>&#10004; {a}</p>
+          <p key={a_modified}>&#10004; {a_modified}</p>
         );
       }
     });
