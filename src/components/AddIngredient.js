@@ -14,7 +14,6 @@ class AddIngredient extends Component {
       );
     });
     return (
-      <section className="section">
         <div className="container">
           <p className="subtitle">Add ingredient</p>
           <div className="field">
@@ -38,7 +37,6 @@ class AddIngredient extends Component {
             </p>
           </div>
         </div>
-      </section>
     );
   }
 }
