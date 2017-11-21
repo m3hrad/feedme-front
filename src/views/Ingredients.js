@@ -7,9 +7,13 @@ class Ingredients extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      active: 'ingredients',
       dataIngredients: [],
       loading: true
     };
+
+    this.handleAddClick = this.handleAddClick.bind(this);
+    this.handleIngredientClick = this.handleIngredientClick.bind(this);
   }
 
   fetchIngredients(url) {
@@ -34,6 +38,18 @@ class Ingredients extends Component {
     )
   }
 
+  handleAddClick() {
+    this.setState({
+      active: 'add'
+    });
+  }
+
+  handleIngredientClick() {
+    this.setState({
+      active: 'ingredients'
+    });
+  }
+
   componentDidMount() {
     this.fetchIngredients('https://feedme-backend.herokuapp.com/api/ingredients');
   }
@@ -46,12 +62,27 @@ class Ingredients extends Component {
       <div>
         <section className="section">
           <div className="container">
+            <div className="tabs">
+              <ul>
+                <li className={""+this.state.active === 'ingredients' ?
+                  'is-active' : ''}>
+                  <a onClick={this.handleIngredientClick}>Ingredients</a></li>
+                <li className={"" +""+this.state.active === 'ingredients' ?
+                  '' : 'is-active'}
+                  ><a onClick={this.handleAddClick}>Add ingredient</a></li>
+              </ul>
+            </div>
+            {this.state.active === 'ingredients' &&
             <Loader loaded={!this.state.loading} className="loader">
               {ingredients}
             </Loader>
+            }
           </div>
         </section>
-        <AddIngredient onChange={this.fetchIngredients('https://feedme-backend.herokuapp.com/api/ingredients')} />
+        {this.state.active === 'add' &&
+        <AddIngredient onChange=
+          {this.fetchIngredients('https://feedme-backend.herokuapp.com/api/ingredients')} />
+        }
       </div>
     );
   }
