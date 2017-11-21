@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import logo from '../images/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class NavBar extends Component {
   render() {
@@ -22,12 +22,14 @@ class NavBar extends Component {
             <Link className="nav-item is-tab" to="/">
               Home
             </Link>
-            <Link className="nav-item is-tab" to="/addIngredient">
-              Ingredients
-            </Link>
             <Link className="nav-item is-tab" to="/addRecipe">
               Recipes
             </Link>
+
+            <NavLink className="nav-item is-tab" to="/ingredients"
+             activeClassName="is-active">
+              Ingredients
+            </NavLink>
             <a className="nav-item is-tab">
               Team
             </a>
@@ -49,4 +51,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default NavBar;

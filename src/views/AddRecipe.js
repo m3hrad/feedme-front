@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import CountryDropdown from '../components/CountryDropdown';
 
-class AddRecipes extends Component {
+class AddRecipe extends Component {
 
     constructor(props) {
         super(props);
@@ -156,7 +156,7 @@ class AddRecipes extends Component {
         const ingredientOptions = [];
         const allIng = this.state.allIngredients ;
         for (let k = 0; k < allIng.length; k++) {
-            ingredientOptions.push(<option key={allIng[k].id} value={allIng[k].id}> {allIng[k].name} </option>);
+            ingredientOptions.push(<option key={k} value={allIng[k].id}> {allIng[k].name} </option>);
         }
 
         //added ingredients
@@ -223,4 +223,4 @@ class AddRecipes extends Component {
     }
 }
 
-export default AddRecipes
+export default AddRecipe

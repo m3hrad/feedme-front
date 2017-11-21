@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Ingredients from './Ingredients';
-// import CountryDropdown from '../components/CountryDropdown';
+import CountryDropdown from '../components/CountryDropdown';
 
 class AddIngredient extends Component {
 
@@ -53,6 +53,7 @@ class AddIngredient extends Component {
           },
           body: JSON.stringify(this.state)})
           .then( function(response) {
+              this.props.onChange();
               return response;
           })
           .then( function(response) {
@@ -86,8 +87,6 @@ class AddIngredient extends Component {
       );
     });
     return (
-      <div>
-      <Ingredients />
       <section className="section">
         <div className="container">
           <p className="subtitle">Add ingredient</p>
@@ -113,7 +112,6 @@ class AddIngredient extends Component {
           </div>
         </div>
       </section>
-    </div>
     );
   }
 }

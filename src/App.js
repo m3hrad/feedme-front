@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import Home from './views/Home';
 import Registration from './views/Registration';
-import AddIngredient from './views/AddIngredient';
+import Ingredients from './views/Ingredients';
 import Footer from './components/Footer';
 import Login from './views/Login';
 import RecipeSearch from './views/RecipeSearch.js';
@@ -19,12 +19,12 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/register' component={Registration} />
-          <Route path='/addIngredient' component={AddIngredient} />
           <Route path='/addRecipe' component={AddRecipe} />
+          <Route path='/ingredients/:id' component={Ingredient} />
+          <Route path='/ingredients' component={Ingredients} />
           <Route path='/login' component={Login} />
           <Route path='/recipe' component={RecipeSearch} />
           <Route path='/recipes/:id?' component={Recipe} />
-          <Route path='/ingredients/:id?' component={Ingredient} />
         </Switch>
         <Footer />
       </div>
