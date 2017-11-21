@@ -104,7 +104,18 @@ class AddRecipe extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(this.state)})
+            body: JSON.stringify({
+                name: this.state.name,
+                description: this.state.description,
+                vegan: this.state.vegan,
+                vegetarian: this.state.vegetarian,
+                gluten_free: this.state.gluten_free,
+                low_carb: this.state.low_carb,
+                low_fat: this.state.low_fat,
+                protein_rich: this.state.protein_rich,
+                dairy_free: this.state.dairy_free,
+                ingredients: this.state.ingredients
+            })})
             .then( function(response) {
                 return response;
             })
