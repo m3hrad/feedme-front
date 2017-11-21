@@ -15,6 +15,7 @@ class Ingredient extends Component {
           <p key={a_modified}>&#10004; {a_modified}</p>
         );
       }
+      return null;
     });
     return attributes;
   }

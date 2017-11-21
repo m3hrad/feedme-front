@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Ingredient from '../components/Ingredient';
 import AddIngredient from '../components/AddIngredient';
+import Loader from 'react-loader';
 
 class Ingredients extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataIngredients: []
+      dataIngredients: [],
+      loading: true
     };
   }
 
@@ -18,13 +20,15 @@ class Ingredients extends Component {
             response.status);
           return;
         }
-        let ingredients = []
         response.json().then((data) => {
           let ingredients = [];
           for (const i in data.data) {
             ingredients.push(data.data[i]);
           }
-          this.setState({dataIngredients: ingredients});
+          this.setState({
+            dataIngredients: ingredients,
+            loading: false
+          });
         });
       }
     )
@@ -36,13 +40,15 @@ class Ingredients extends Component {
 
   render() {
     const ingredients = this.state.dataIngredients.map((d) =>
-        <Ingredient data={d} key={d.name}/>
+        <Ingredient data={d} key={d.id}/>
     );
     return(
       <div>
         <section className="section">
           <div className="container">
-            {ingredients}
+            <Loader loaded={!this.state.loading} className="loader">
+              {ingredients}
+            </Loader>
           </div>
         </section>
         <AddIngredient />
