@@ -19,7 +19,7 @@ class AddRecipe extends Component {
             allIngredients:[],
             ingredientAmount: 0,
             ingredientUnit: '',
-            ingredientId: '',
+            ingredientId: 1,
             ingredientName:''
         };
 
@@ -75,8 +75,8 @@ class AddRecipe extends Component {
             });
         }
         else if ( target.type === 'select-one' ){
-            var index = event.nativeEvent.target.selectedIndex;
-            var selectedIngredientName = event.nativeEvent.target[index].text;
+            let index = event.nativeEvent.target.selectedIndex;
+            let selectedIngredientName = event.nativeEvent.target[index].text;
             this.setState({
                 ingredientId: target.value,
                 ingredientName: selectedIngredientName
@@ -105,16 +105,16 @@ class AddRecipe extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                name: this.state.name,
-                description: this.state.description,
-                vegan: this.state.vegan,
-                vegetarian: this.state.vegetarian,
-                gluten_free: this.state.gluten_free,
-                low_carb: this.state.low_carb,
-                low_fat: this.state.low_fat,
-                protein_rich: this.state.protein_rich,
-                dairy_free: this.state.dairy_free,
-                ingredients: this.state.ingredients
+                "name": this.state.name,
+                "description": this.state.description,
+                "vegan": this.state.vegan,
+                "vegetarian": this.state.vegetarian,
+                "gluten_free": this.state.gluten_free,
+                "low_carb": this.state.low_carb,
+                "low_fat": this.state.low_fat,
+                "protein_rich": this.state.protein_rich,
+                "dairy_free": this.state.dairy_free,
+                "ingredients": this.state.ingredients
             })})
             .then( function(response) {
                 return response;
@@ -128,8 +128,23 @@ class AddRecipe extends Component {
                 return response.json();
             })
             .then( function(data) {
+                alert("The recipe added!");
                 main.setState({
-                    recipes: data.data
+                    recipes: data.data,
+                    name: '',
+                    description: '',
+                    vegan: false,
+                    vegetarian: false,
+                    gluten_free: false,
+                    low_carb: false,
+                    low_fat: false,
+                    protein_rich: false,
+                    dairy_free: false,
+                    ingredients: [],
+                    ingredientAmount: 0,
+                    ingredientUnit: '',
+                    ingredientId: 1,
+                    ingredientName:''
                 });
             })
             .catch( function() {
@@ -142,10 +157,10 @@ class AddRecipe extends Component {
     handleAddIngredient(event){
         let ingredientsArray = this.state.ingredients.slice();
         ingredientsArray.push({
-            id: this.state.ingredientId,
-            name: this.state.ingredientName,
-            amount: this.state.ingredientAmount,
-            unit: this.state.ingredientUnit
+            "ingredient_id": parseInt(this.state.ingredientId),
+            "name": this.state.ingredientName,
+            "quantity": parseInt(this.state.ingredientAmount),
+            "unit": this.state.ingredientUnit
         });
         this.setState({ ingredients: ingredientsArray })
     }
@@ -175,7 +190,7 @@ class AddRecipe extends Component {
             return (
                 <div key = {index}>
                     {ingredient.name} &nbsp;
-                    {ingredient.amount} &nbsp;
+                    {ingredient.quantity} &nbsp;
                     {ingredient.unit} &nbsp;
                 </div>
             );
