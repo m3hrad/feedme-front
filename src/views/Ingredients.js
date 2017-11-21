@@ -55,8 +55,8 @@ class Ingredients extends Component {
   }
 
   render() {
-    const ingredients = this.state.dataIngredients.map((d) =>
-        <Ingredient data={d} key={d.id}/>
+    const ingredients = this.state.dataIngredients.map((d,index) =>
+        <Ingredient data={d} key={index}/>
     );
     return(
       <div>
@@ -80,7 +80,8 @@ class Ingredients extends Component {
           </div>
         </section>
         {this.state.active === 'add' &&
-        <AddIngredient />
+        <AddIngredient onChange=
+          {this.fetchIngredients('https://feedme-backend.herokuapp.com/api/ingredients')} />
         }
       </div>
     );

@@ -7,7 +7,7 @@ class CountryDropdown extends Component {
         <p className="control has-icons-left">
           <span className="select">
             <select>
-              <option defaultValue="Select City">Select City</option>
+              {/*<option defaultValue="Select City">Select City</option>*/}
               <option>Helsinki</option>
               <option>Stockholm</option>
             </select>

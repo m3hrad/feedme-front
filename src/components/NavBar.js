@@ -18,10 +18,14 @@ class NavBar extends Component {
             <span></span>
           </span>
           <div className="nav-right nav-menu">
-            <NavLink className="nav-item is-tab" exact to='/'
-            activeClassName="is-active">
+            {/*is-active*/}
+            <Link className="nav-item is-tab" to="/">
               Home
-            </NavLink>
+            </Link>
+            <Link className="nav-item is-tab" to="/addRecipe">
+              Recipes
+            </Link>
+
             <NavLink className="nav-item is-tab" to="/ingredients"
              activeClassName="is-active">
               Ingredients
