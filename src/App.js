@@ -13,19 +13,24 @@ import AddRecipe from "./views/AddRecipe.js";
 
 class App extends Component {
   render() {
+      const divStyle = {
+          minHeight : '40em'
+      };
     return (
       <div className="App">
         <NavBar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/register' component={Registration} />
-          <Route path='/addRecipe' component={AddRecipe} />
-          <Route path='/ingredients/:id' component={Ingredient} />
-          <Route path='/ingredients' component={Ingredients} />
-          <Route path='/login' component={Login} />
-          <Route path='/recipe' component={RecipeSearch} />
-          <Route path='/recipes/:id?' component={Recipe} />
-        </Switch>
+          <div style={divStyle}>
+            <Switch >
+              <Route exact path='/' component={Home} />
+              <Route path='/register' component={Registration} />
+              <Route path='/addRecipe' component={AddRecipe} />
+              <Route path='/ingredients/:id' component={Ingredient} />
+              <Route path='/ingredients' component={Ingredients} />
+              <Route path='/login' component={Login} />
+              <Route path='/recipe' component={RecipeSearch} />
+              <Route path='/recipes/:id?' component={Recipe} />
+            </Switch>
+          </div>
         <Footer />
       </div>
     );

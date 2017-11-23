@@ -73,6 +73,7 @@ class SearchBar extends Component {
     return (
         <div>
             {checkboxes}
+            <br/><br/>
             <div className="field has-addons">
                 <div className="control">
                     <input className="input" type="text" value={this.state.name} onChange={this.handleChange} />

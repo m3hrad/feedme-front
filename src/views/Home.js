@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <section className="section">
         <div className="container">
-          <CountryDropdown />
+          {/*<CountryDropdown />*/}
           <SearchBar />
           <figure className="image">
             <img src={landing} />
