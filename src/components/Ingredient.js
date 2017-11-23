@@ -31,12 +31,12 @@ class Ingredient extends Component {
                 <p className="subtitle"><strong>{this.props.data.name}</strong></p>
               </div>
             </div>
-            <div className="level-item has-text-centered">
-              <div>
-                <p className="heading">Location</p>
-                <p className="subtitle"><strong>{this.props.data.city_id}</strong></p>
-              </div>
-            </div>
+            {/*<div className="level-item has-text-centered">*/}
+              {/*<div>*/}
+                {/*<p className="heading">Location</p>*/}
+                {/*<p className="subtitle"><strong>{this.props.data.city_id}</strong></p>*/}
+              {/*</div>*/}
+            {/*</div>*/}
           </div>
 
           <div className="level-right">
