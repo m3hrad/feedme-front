@@ -14,7 +14,7 @@ import AddRecipe from "./views/AddRecipe.js";
 class App extends Component {
   render() {
       const divStyle = {
-          minHeight : '40em'
+          minHeight : '43em'
       };
     return (
       <div className="App">

@@ -86,8 +86,9 @@ class AddIngredient extends Component {
         </label>
       );
     });
+    const style = {margin:'2em'};
     return (
-        <div className="container">
+        <div className="container" style={style}>
           <p className="subtitle">Add ingredient</p>
           <div className="field">
             <label className="label">Ingredient name</label>
