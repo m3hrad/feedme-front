@@ -13,7 +13,7 @@ class Home extends Component {
           <figure className="image">
             <img src={landing} />
           </figure>
-          </div>
+        </div>
       </section>
     );
   }
