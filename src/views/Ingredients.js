@@ -14,6 +14,7 @@ class Ingredients extends Component {
 
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleIngredientClick = this.handleIngredientClick.bind(this);
+    this.deleteIngredient = this.deleteIngredient.bind(this);
   }
 
   fetchIngredients(url) {
@@ -29,6 +30,17 @@ class Ingredients extends Component {
           for (const i in data.data) {
             ingredients.push(data.data[i]);
           }
+          ingredients.sort((a, b) => {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          })
           this.setState({
             dataIngredients: ingredients,
             loading: false
@@ -54,9 +66,18 @@ class Ingredients extends Component {
     this.fetchIngredients('https://feedme-backend.herokuapp.com/api/ingredients');
   }
 
+  deleteIngredient(item) {
+    return fetch('https://feedme-backend.herokuapp.com/api/ingredients/' + item, {
+      method: 'delete'
+    })
+    .then(response => {
+      console.log('Deleted item ', item);
+      this.fetchIngredients('https://feedme-backend.herokuapp.com/api/ingredients');
+  })}
+
   render() {
     const ingredients = this.state.dataIngredients.map((d,index) =>
-        <Ingredient data={d} key={index}/>
+        <Ingredient data={d} key={index} deleteIngredient={this.deleteIngredient}/>
     );
     return(
       <div>

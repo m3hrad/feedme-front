@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class Ingredient extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleDelete = this.handleDelete.bind(this);
+  }
 
   renderAttributes(data) {
     let keys = [];
@@ -20,6 +25,11 @@ class Ingredient extends Component {
     return attributes;
   }
 
+  handleDelete() {
+    const idx = this.props.data.id;
+    return this.props.deleteIngredient(idx);
+  }
+
   render() {
     return(
       <div className="box">
@@ -28,7 +38,8 @@ class Ingredient extends Component {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">Ingredient</p>
-                <p className="subtitle"><strong>{this.props.data.name}</strong></p>
+                <p className="subtitle"><strong>{this.props.data.name} </strong>
+                <a className="delete" onClick={this.handleDelete}></a></p>
               </div>
             </div>
             {/*<div className="level-item has-text-centered">*/}
