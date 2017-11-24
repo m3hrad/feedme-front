@@ -9,7 +9,6 @@ import RecipeSearch from './views/RecipeSearch.js';
 import Recipe from './views/Recipe';
 import Ingredient from './views/Ingredient';
 import { Switch, Route } from 'react-router-dom';
-import AddRecipe from "./views/AddRecipe.js";
 import RecipesView from './views/RecipesView';
 
 class App extends Component {

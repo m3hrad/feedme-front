@@ -182,8 +182,19 @@ class AddRecipe extends Component {
                 </label>
             );
         });
-        const ingredientOptions = [];
-        const allIng = this.state.allIngredients ;
+        let ingredientOptions = [];
+        const allIng = this.state.allIngredients.slice().sort((a, b) => {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+        });
+        
         for (let k = 0; k < allIng.length; k++) {
             ingredientOptions.push(<option key={k} value={allIng[k].id}> {allIng[k].name} </option>);
         }
