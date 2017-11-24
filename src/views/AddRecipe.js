@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RecipesView from './RecipesView';
 // import CountryDropdown from '../components/CountryDropdown';
 
 class AddRecipe extends Component {

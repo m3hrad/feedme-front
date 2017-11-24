@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Recipes from '../components/Recipes';
 
-
 class Recipe extends Component {
 
     constructor(props) {

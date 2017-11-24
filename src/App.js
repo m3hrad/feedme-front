@@ -10,6 +10,7 @@ import Recipe from './views/Recipe';
 import Ingredient from './views/Ingredient';
 import { Switch, Route } from 'react-router-dom';
 import AddRecipe from "./views/AddRecipe.js";
+import RecipesView from './views/RecipesView';
 
 class App extends Component {
   render() {
@@ -23,11 +24,11 @@ class App extends Component {
             <Switch >
               <Route exact path='/' component={Home} />
               <Route path='/register' component={Registration} />
-              <Route path='/addRecipe' component={AddRecipe} />
               <Route path='/ingredients/:id' component={Ingredient} />
               <Route path='/ingredients' component={Ingredients} />
               <Route path='/login' component={Login} />
               <Route path='/recipe' component={RecipeSearch} />
+              <Route exact path='/recipes' component={RecipesView} />
               <Route path='/recipes/:id?' component={Recipe} />
             </Switch>
           </div>

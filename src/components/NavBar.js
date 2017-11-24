@@ -26,7 +26,7 @@ class NavBar extends Component {
                      activeClassName="is-active">
               Home
             </NavLink>
-            <NavLink className="nav-item is-tab" to="/addRecipe"
+            <NavLink className="nav-item is-tab" to="/recipes"
                      activeClassName="is-active">
               Recipes
             </NavLink>
